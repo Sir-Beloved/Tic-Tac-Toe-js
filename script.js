@@ -26,3 +26,25 @@ function addEvent(element, eventName, callback) {
         element.attachEvent("on" + eventName, callback);
     }
 }
+
+function fnChoose(e) {
+    if (e.target && e.target.nodeName == "TD") {
+        var targetElement = document.getElementById(e.target.id);
+        var prevTurn;
+        if ((targetElement.className).indexOf("disabled") == -1) {
+            targetElement.innerHTML = turn;
+            targetElement.classList.add('disabled');
+            targetElement.classList.add(turn);
+            score[turn] += 1;
+            prevTurn = turn;
+            turn = turn === "X" ? "O" : "X";
+            if (fndecide(targetElement, prevTurn)) {
+                alert(prevTurn + ' has won the game');
+                fnNewGame();
+            } else if ((score['X'] + score['O']) == (gridValue * gridValue)) {
+                alert('Draw!');
+                fnNewGame();
+            }
+        }
+    }
+}

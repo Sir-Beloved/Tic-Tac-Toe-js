@@ -27,3 +27,8 @@ select {
     cursor:pointer;
     width:100px;
 }
+.minContainer {
+    padding: 20px;
+    padding-right: 30px;
+    position: absolute;
+}
