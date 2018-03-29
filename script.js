@@ -48,3 +48,26 @@ function fnChoose(e) {
         }
     }
 }
+
+function fndecide(targetElement, prevTurn) {
+    var UL = document.getElementById('game');
+    var elements, i, j, cnt;
+    if (score[prevTurn] >= gridValue) {
+        var classes = targetElement.className.split(/\s+/);
+        for (i = 0; i < classes.length; i += 1) {
+            cnt = 0;
+            if (classes[i].indexOf('row') !== -1 || classes[i].indexOf('col') !== -1 || classes[i].indexOf('dia') !== -1) {
+                elements = UL.getElementsByClassName(classes[i]);
+                for (j = 0; j < elements.length; j += 1) {
+                    if (elements[j].innerHTML == prevTurn) {
+                        cnt += 1;
+                    }
+                }
+                if (cnt == gridValue) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
