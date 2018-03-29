@@ -71,3 +71,16 @@ function fndecide(targetElement, prevTurn) {
     }
     return false;
 }
+
+
+function fnNewGame() {
+    var gameUL = document.getElementById("game");
+    if (gameUL.innerHTML !== '') {
+        gameUL.innerHTML = null;
+        score = {
+            'X': 0,
+            'O': 0
+        };
+        turn = 'X';
+        gridValue = 0;
+    }
