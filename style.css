@@ -55,3 +55,12 @@ table {
     max-height: 32px;
     text-align: center;
 }
+
+
+.X{
+    background-color: #FF8362;    
+}
+
+.O{
+    background-color: #BB7365;
+}
